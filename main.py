@@ -98,12 +98,12 @@ def encrypt_text():
         messagebox.showerror("Ошибка", "Введите ключ шифрования!")
         return
 
-    #try:
-    encrypted = stream_cipher_encrypt_decrypt(plaintext.encode(), key.encode())
-    output_text.delete("1.0", tk.END)
-    output_text.insert("1.0", encrypted.hex())  # Отображаем в виде hex
-    # except Exception as e:
-    #     messagebox.showerror("Ошибка", f"Произошла ошибка: {e}")
+    try:
+        encrypted = stream_cipher_encrypt_decrypt(plaintext.encode(), key.encode())
+        output_text.delete("1.0", tk.END)
+        output_text.insert("1.0", encrypted.hex())  # Отображаем в виде hex
+    except Exception as e:
+        messagebox.showerror("Ошибка", f"Произошла ошибка: {e}")
 
 
 def decrypt_text():
